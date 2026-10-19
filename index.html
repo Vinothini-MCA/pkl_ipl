@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,8 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -74,21 +76,48 @@
 
         /* Screen Shake Animation */
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20% { transform: translateX(-12px) rotate(-1deg); }
-            40% { transform: translateX(12px) rotate(1deg); }
-            60% { transform: translateX(-8px); }
-            80% { transform: translateX(8px); }
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-12px) rotate(-1deg);
+            }
+
+            40% {
+                transform: translateX(12px) rotate(1deg);
+            }
+
+            60% {
+                transform: translateX(-8px);
+            }
+
+            80% {
+                transform: translateX(8px);
+            }
         }
+
         .animate-shake {
-            animation: shake 0.45s cubic-bezier(.36,.07,.19,.97) both;
+            animation: shake 0.45s cubic-bezier(.36, .07, .19, .97) both;
         }
 
         /* Pulsing Next Button */
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 15px rgba(34, 197, 94, 0.6); transform: scale(1); }
-            50% { box-shadow: 0 0 30px rgba(34, 197, 94, 0.9); transform: scale(1.03); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(34, 197, 94, 0.9);
+                transform: scale(1.03);
+            }
         }
+
         .btn-pulse-next {
             animation: pulse-glow 1.5s infinite ease-in-out;
         }
@@ -113,16 +142,20 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #0a0f1d;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #581c87;
             border-radius: 4px;
         }
     </style>
 </head>
-<body class="relative min-h-screen bg-night text-gray-100 flex flex-col justify-between selection:bg-purple-600 selection:text-white">
+
+<body
+    class="relative min-h-screen bg-night text-gray-100 flex flex-col justify-between selection:bg-purple-600 selection:text-white">
 
     <!-- Background Ambient Imperial Glows -->
     <div class="fixed inset-0 bg-imperial-glow pointer-events-none z-0"></div>
@@ -131,35 +164,43 @@
     <div class="relative z-10 max-w-5xl mx-auto w-full px-4 py-4 flex-grow flex flex-col">
 
         <!-- PERSISTENT TOP HEADER BAR -->
-        <header class="glass-panel rounded-2xl p-3 sm:p-4 mb-6 flex flex-wrap items-center justify-between gap-3 shadow-xl">
+        <header
+            class="glass-panel rounded-2xl p-3 sm:p-4 mb-6 flex flex-wrap items-center justify-between gap-3 shadow-xl">
             <!-- Brand / Logo -->
             <button onclick="app.showDashboard()" class="flex items-center gap-3 group focus:outline-none text-left">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-800 to-indigo-600 flex items-center justify-center text-gold font-extrabold text-xl shadow-lg border border-purple-400/30 group-hover:scale-105 transition">
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-800 to-indigo-600 flex items-center justify-center text-gold font-extrabold text-xl shadow-lg border border-purple-400/30 group-hover:scale-105 transition">
                     <i class="fa-solid fa-trophy text-amber-400"></i>
                 </div>
                 <div>
-                    <h1 class="font-extrabold text-lg sm:text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-amber-200 to-indigo-200">
+                    <h1
+                        class="font-extrabold text-lg sm:text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-amber-200 to-indigo-200">
                         ULTIMATE ARENA
                     </h1>
-                    <p class="text-[10px] sm:text-xs text-purple-300 font-semibold tracking-wider uppercase">IPL & PKL 100-LEVELS HUB</p>
+                    <p class="text-[10px] sm:text-xs text-purple-300 font-semibold tracking-wider uppercase">IPL & PKL
+                        100-LEVELS HUB</p>
                 </div>
             </button>
 
             <!-- Stats & Controls Widget -->
             <div class="flex items-center gap-2 sm:gap-4 ml-auto">
                 <!-- Coins Balance -->
-                <div class="glass-panel px-3 py-1.5 rounded-xl border border-amber-500/30 flex items-center gap-2 bg-black/40">
+                <div
+                    class="glass-panel px-3 py-1.5 rounded-xl border border-amber-500/30 flex items-center gap-2 bg-black/40">
                     <span class="text-amber-400 text-base sm:text-lg animate-bounce">🪙</span>
-                    <span id="header-coins" class="font-bold text-amber-300 text-sm sm:text-base tracking-wide">100</span>
+                    <span id="header-coins"
+                        class="font-bold text-amber-300 text-sm sm:text-base tracking-wide">100</span>
                 </div>
 
                 <!-- Sound FX Toggle Button -->
-                <button id="btn-sound" onclick="app.toggleSound()" title="Toggle Audio FX" class="glass-panel w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center border border-purple-500/30 text-purple-300 hover:text-white hover:bg-purple-900/40 transition active:scale-95">
+                <button id="btn-sound" onclick="app.toggleSound()" title="Toggle Audio FX"
+                    class="glass-panel w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center border border-purple-500/30 text-purple-300 hover:text-white hover:bg-purple-900/40 transition active:scale-95">
                     <i id="icon-sound" class="fa-solid fa-volume-high"></i>
                 </button>
 
                 <!-- Reset Data Modal Trigger -->
-                <button onclick="app.confirmReset()" title="Reset Saved Progress" class="glass-panel w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center border border-rose-500/30 text-rose-400 hover:text-rose-200 hover:bg-rose-950/40 transition active:scale-95">
+                <button onclick="app.confirmReset()" title="Reset Saved Progress"
+                    class="glass-panel w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center border border-rose-500/30 text-rose-400 hover:text-rose-200 hover:bg-rose-950/40 transition active:scale-95">
                     <i class="fa-solid fa-rotate-left"></i>
                 </button>
             </div>
@@ -167,18 +208,22 @@
 
         <!-- VIEW 1: DASHBOARD / HERO SCREEN -->
         <main id="view-dashboard" class="view-section flex-grow flex flex-col justify-center">
-            
+
             <!-- Hero Title -->
             <div class="text-center mb-8">
-                <span class="px-4 py-1.5 rounded-full text-xs font-bold tracking-widest bg-purple-900/60 border border-purple-500/40 text-purple-300 uppercase shadow-inner inline-block mb-3">
+                <span
+                    class="px-4 py-1.5 rounded-full text-xs font-bold tracking-widest bg-purple-900/60 border border-purple-500/40 text-purple-300 uppercase shadow-inner inline-block mb-3">
                     ⚡ 100-Level Franchise Trivia Arena
                 </span>
                 <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
                     Cricket & Kabaddi <br>
-                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-purple-300 to-indigo-400">Master Championship</span>
+                    <span
+                        class="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-purple-300 to-indigo-400">Master
+                        Championship</span>
                 </h2>
                 <p class="text-gray-400 text-xs sm:text-sm mt-2 max-w-xl mx-auto">
-                    Identify legendary IPL & PKL players, beat 100 progressive non-repeating levels, earn gold coins, and conquer all 3 ultimate game modes!
+                    Identify legendary IPL & PKL players, beat 100 progressive non-repeating levels, earn gold coins,
+                    and conquer all 3 ultimate game modes!
                 </p>
             </div>
 
@@ -190,37 +235,50 @@
                 </div>
                 <div class="glass-panel p-3 rounded-xl text-center border-t-2 border-purple-500">
                     <div class="text-gray-400 text-[10px] sm:text-xs font-semibold uppercase">Levels Beat</div>
-                    <div id="dash-total-levels" class="text-lg sm:text-2xl font-black text-purple-300 mt-0.5">0 / 300</div>
+                    <div id="dash-total-levels" class="text-lg sm:text-2xl font-black text-purple-300 mt-0.5">0 / 300
+                    </div>
                 </div>
                 <div class="glass-panel p-3 rounded-xl text-center border-t-2 border-indigo-500">
                     <div class="text-gray-400 text-[10px] sm:text-xs font-semibold uppercase">Trophies</div>
-                    <div id="dash-total-trophies" class="text-lg sm:text-2xl font-black text-indigo-300 mt-0.5">0 / 3</div>
+                    <div id="dash-total-trophies" class="text-lg sm:text-2xl font-black text-indigo-300 mt-0.5">0 / 3
+                    </div>
                 </div>
             </div>
 
             <!-- GAME MODES SELECTION GRID -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto w-full mb-6">
-                
+
                 <!-- MODE 1: IPL TRIVIA -->
-                <div class="glass-panel rounded-2xl p-5 border border-purple-500/30 flex flex-col justify-between hover:border-amber-400/60 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden">
-                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/20 transition"></div>
+                <div
+                    class="glass-panel rounded-2xl p-5 border border-purple-500/30 flex flex-col justify-between hover:border-amber-400/60 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden">
+                    <div
+                        class="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/20 transition">
+                    </div>
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-2xl">🏏</span>
-                            <span class="text-xs font-extrabold px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30">100 LEVELS</span>
+                            <span
+                                class="text-xs font-extrabold px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30">100
+                                LEVELS</span>
                         </div>
-                        <h3 class="text-xl font-black text-white group-hover:text-amber-300 transition mb-1">IPL Team Trivia</h3>
-                        <p class="text-xs text-gray-400 mb-4">Guess the IPL franchise for 100 star cricket icons. Zero repeating players!</p>
+                        <h3 class="text-xl font-black text-white group-hover:text-amber-300 transition mb-1">IPL Team
+                            Trivia</h3>
+                        <p class="text-xs text-gray-400 mb-4">Guess the IPL franchise for 100 star cricket icons. Zero
+                            repeating players!</p>
                     </div>
                     <div>
                         <div class="flex justify-between text-xs text-purple-300 font-semibold mb-1">
                             <span>Progress</span>
                             <span id="prog-text-ipl">Level 1 / 100</span>
                         </div>
-                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden mb-4 border border-purple-900/50">
-                            <div id="prog-bar-ipl" class="bg-gradient-to-r from-purple-600 to-amber-400 h-full rounded-full transition-all duration-500" style="width: 1%"></div>
+                        <div
+                            class="w-full bg-gray-800 h-2 rounded-full overflow-hidden mb-4 border border-purple-900/50">
+                            <div id="prog-bar-ipl"
+                                class="bg-gradient-to-r from-purple-600 to-amber-400 h-full rounded-full transition-all duration-500"
+                                style="width: 1%"></div>
                         </div>
-                        <button onclick="app.startMode('ipl')" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-indigo-800 text-white font-bold text-sm shadow-lg shadow-purple-900/40 flex items-center justify-center gap-2 group-hover:shadow-amber-500/20 transition">
+                        <button onclick="app.startMode('ipl')"
+                            class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-indigo-800 text-white font-bold text-sm shadow-lg shadow-purple-900/40 flex items-center justify-center gap-2 group-hover:shadow-amber-500/20 transition">
                             <span>PLAY MODE 1</span>
                             <i class="fa-solid fa-play text-xs"></i>
                         </button>
@@ -228,25 +286,36 @@
                 </div>
 
                 <!-- MODE 2: PKL TRIVIA -->
-                <div class="glass-panel rounded-2xl p-5 border border-purple-500/30 flex flex-col justify-between hover:border-purple-400/60 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden">
-                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-purple-500/10 rounded-full blur-xl group-hover:bg-purple-500/20 transition"></div>
+                <div
+                    class="glass-panel rounded-2xl p-5 border border-purple-500/30 flex flex-col justify-between hover:border-purple-400/60 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden">
+                    <div
+                        class="absolute -right-6 -bottom-6 w-24 h-24 bg-purple-500/10 rounded-full blur-xl group-hover:bg-purple-500/20 transition">
+                    </div>
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-2xl">🤼</span>
-                            <span class="text-xs font-extrabold px-2.5 py-1 rounded-md bg-purple-500/20 text-purple-300 border border-purple-500/30">100 LEVELS</span>
+                            <span
+                                class="text-xs font-extrabold px-2.5 py-1 rounded-md bg-purple-500/20 text-purple-300 border border-purple-500/30">100
+                                LEVELS</span>
                         </div>
-                        <h3 class="text-xl font-black text-white group-hover:text-purple-300 transition mb-1">PKL Kabaddi Trivia</h3>
-                        <p class="text-xs text-gray-400 mb-4">Identify legendary Pro Kabaddi raiders & defenders across 100 levels!</p>
+                        <h3 class="text-xl font-black text-white group-hover:text-purple-300 transition mb-1">PKL
+                            Kabaddi Trivia</h3>
+                        <p class="text-xs text-gray-400 mb-4">Identify legendary Pro Kabaddi raiders & defenders across
+                            100 levels!</p>
                     </div>
                     <div>
                         <div class="flex justify-between text-xs text-purple-300 font-semibold mb-1">
                             <span>Progress</span>
                             <span id="prog-text-pkl">Level 1 / 100</span>
                         </div>
-                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden mb-4 border border-purple-900/50">
-                            <div id="prog-bar-pkl" class="bg-gradient-to-r from-purple-600 to-indigo-400 h-full rounded-full transition-all duration-500" style="width: 1%"></div>
+                        <div
+                            class="w-full bg-gray-800 h-2 rounded-full overflow-hidden mb-4 border border-purple-900/50">
+                            <div id="prog-bar-pkl"
+                                class="bg-gradient-to-r from-purple-600 to-indigo-400 h-full rounded-full transition-all duration-500"
+                                style="width: 1%"></div>
                         </div>
-                        <button onclick="app.startMode('pkl')" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-indigo-800 text-white font-bold text-sm shadow-lg shadow-purple-900/40 flex items-center justify-center gap-2 group-hover:shadow-purple-500/20 transition">
+                        <button onclick="app.startMode('pkl')"
+                            class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-700 to-purple-900 hover:from-purple-600 hover:to-indigo-800 text-white font-bold text-sm shadow-lg shadow-purple-900/40 flex items-center justify-center gap-2 group-hover:shadow-purple-500/20 transition">
                             <span>PLAY MODE 2</span>
                             <i class="fa-solid fa-play text-xs"></i>
                         </button>
@@ -254,25 +323,36 @@
                 </div>
 
                 <!-- MODE 3: MIXED ULTIMATE -->
-                <div class="glass-panel rounded-2xl p-5 border border-purple-500/30 flex flex-col justify-between hover:border-indigo-400/60 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden">
-                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-indigo-500/10 rounded-full blur-xl group-hover:bg-indigo-500/20 transition"></div>
+                <div
+                    class="glass-panel rounded-2xl p-5 border border-purple-500/30 flex flex-col justify-between hover:border-indigo-400/60 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden">
+                    <div
+                        class="absolute -right-6 -bottom-6 w-24 h-24 bg-indigo-500/10 rounded-full blur-xl group-hover:bg-indigo-500/20 transition">
+                    </div>
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-2xl">🔥</span>
-                            <span class="text-xs font-extrabold px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">100 LEVELS</span>
+                            <span
+                                class="text-xs font-extrabold px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">100
+                                LEVELS</span>
                         </div>
-                        <h3 class="text-xl font-black text-white group-hover:text-indigo-300 transition mb-1">IPL & PKL Mixed</h3>
-                        <p class="text-xs text-gray-400 mb-4">The ultimate 100-level challenge combining Cricket and Kabaddi legends!</p>
+                        <h3 class="text-xl font-black text-white group-hover:text-indigo-300 transition mb-1">IPL & PKL
+                            Mixed</h3>
+                        <p class="text-xs text-gray-400 mb-4">The ultimate 100-level challenge combining Cricket and
+                            Kabaddi legends!</p>
                     </div>
                     <div>
                         <div class="flex justify-between text-xs text-purple-300 font-semibold mb-1">
                             <span>Progress</span>
                             <span id="prog-text-mixed">Level 1 / 100</span>
                         </div>
-                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden mb-4 border border-purple-900/50">
-                            <div id="prog-bar-mixed" class="bg-gradient-to-r from-indigo-600 to-purple-400 h-full rounded-full transition-all duration-500" style="width: 1%"></div>
+                        <div
+                            class="w-full bg-gray-800 h-2 rounded-full overflow-hidden mb-4 border border-purple-900/50">
+                            <div id="prog-bar-mixed"
+                                class="bg-gradient-to-r from-indigo-600 to-purple-400 h-full rounded-full transition-all duration-500"
+                                style="width: 1%"></div>
                         </div>
-                        <button onclick="app.startMode('mixed')" class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-800 to-purple-900 hover:from-indigo-700 hover:to-purple-800 text-white font-bold text-sm shadow-lg shadow-indigo-900/40 flex items-center justify-center gap-2 group-hover:shadow-indigo-500/20 transition">
+                        <button onclick="app.startMode('mixed')"
+                            class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-800 to-purple-900 hover:from-indigo-700 hover:to-purple-800 text-white font-bold text-sm shadow-lg shadow-indigo-900/40 flex items-center justify-center gap-2 group-hover:shadow-indigo-500/20 transition">
                             <span>PLAY MODE 3</span>
                             <i class="fa-solid fa-play text-xs"></i>
                         </button>
@@ -283,40 +363,50 @@
         </main>
 
         <!-- VIEW 2: GAMEPLAY SCREEN -->
-        <main id="view-game" class="view-section view-hidden flex-grow flex flex-col justify-center max-w-3xl mx-auto w-full">
-            
+        <main id="view-game"
+            class="view-section view-hidden flex-grow flex flex-col justify-center max-w-3xl mx-auto w-full">
+
             <!-- GAME BAR: Back, Mode Title, Level Badge, Lives -->
             <div class="flex items-center justify-between mb-4">
-                <button onclick="app.showDashboard()" class="glass-panel px-3 py-1.5 rounded-xl text-xs font-semibold text-gray-300 hover:text-white flex items-center gap-2 border border-purple-500/30 hover:bg-purple-900/40 transition">
+                <button onclick="app.showDashboard()"
+                    class="glass-panel px-3 py-1.5 rounded-xl text-xs font-semibold text-gray-300 hover:text-white flex items-center gap-2 border border-purple-500/30 hover:bg-purple-900/40 transition">
                     <i class="fa-solid fa-arrow-left"></i>
                     <span>Dashboard</span>
                 </button>
 
                 <div class="flex items-center gap-2">
-                    <span id="game-mode-tag" class="px-3 py-1 rounded-full text-xs font-extrabold uppercase bg-purple-950/80 border border-purple-500/40 text-purple-300">
+                    <span id="game-mode-tag"
+                        class="px-3 py-1 rounded-full text-xs font-extrabold uppercase bg-purple-950/80 border border-purple-500/40 text-purple-300">
                         IPL MODE
                     </span>
-                    <span id="game-level-badge" class="px-3 py-1 rounded-full text-xs font-extrabold uppercase bg-amber-500/20 border border-amber-500/40 text-amber-300">
+                    <span id="game-level-badge"
+                        class="px-3 py-1 rounded-full text-xs font-extrabold uppercase bg-amber-500/20 border border-amber-500/40 text-amber-300">
                         LEVEL 1 / 100
                     </span>
                 </div>
 
                 <!-- LIVES HEARTS COUNTER -->
-                <div id="lives-container" class="glass-panel px-3 py-1.5 rounded-xl border border-rose-500/30 flex items-center gap-1">
+                <div id="lives-container"
+                    class="glass-panel px-3 py-1.5 rounded-xl border border-rose-500/30 flex items-center gap-1">
                     <!-- Populated dynamically: ❤️ ❤️ ❤️ -->
                 </div>
             </div>
 
             <!-- MAIN QUESTION CARD GLASS PANEL -->
-            <div id="game-card" class="glass-panel-glow rounded-3xl p-5 sm:p-8 relative flex flex-col items-center text-center transition-all duration-300">
-                
+            <div id="game-card"
+                class="glass-panel-glow rounded-3xl p-5 sm:p-8 relative flex flex-col items-center text-center transition-all duration-300">
+
                 <!-- Player Photo Avatar & Glow Container -->
                 <div class="relative mb-4">
-                    <div id="avatar-frame" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full player-avatar-glow overflow-hidden bg-gray-900 relative flex items-center justify-center transition-all duration-300">
-                        <img id="player-photo" src="" alt="Player Photo" class="w-full h-full object-cover object-top transition duration-300" onerror="this.src='https://placehold.co/200x200/581c87/ffffff?text=Star+Player'">
+                    <div id="avatar-frame"
+                        class="w-32 h-32 sm:w-40 sm:h-40 rounded-full player-avatar-glow overflow-hidden bg-gray-900 relative flex items-center justify-center transition-all duration-300">
+                        <img id="player-photo" src="" alt="Player Photo"
+                            class="w-full h-full object-cover object-top transition duration-300"
+                            onerror="this.src='https://placehold.co/200x200/581c87/ffffff?text=Star+Player'">
                     </div>
                     <!-- Sports Category Icon Badge -->
-                    <div id="player-sport-badge" class="absolute bottom-0 right-1 w-9 h-9 rounded-full bg-purple-900 border-2 border-purple-400 text-white flex items-center justify-center shadow-lg text-sm">
+                    <div id="player-sport-badge"
+                        class="absolute bottom-0 right-1 w-9 h-9 rounded-full bg-purple-900 border-2 border-purple-400 text-white flex items-center justify-center shadow-lg text-sm">
                         🏏
                     </div>
                 </div>
@@ -325,36 +415,45 @@
                 <h3 id="player-name" class="text-2xl sm:text-3xl font-black text-white tracking-wide mb-1">
                     Player Name
                 </h3>
-                <p id="player-role" class="text-xs sm:text-sm font-semibold text-purple-300 uppercase tracking-widest mb-3">
+                <p id="player-role"
+                    class="text-xs sm:text-sm font-semibold text-purple-300 uppercase tracking-widest mb-3">
                     Role / Position
                 </p>
 
                 <!-- Prompt text -->
-                <div class="px-4 py-1.5 rounded-lg bg-purple-950/60 border border-purple-500/20 text-gray-300 text-xs sm:text-sm font-medium mb-6">
+                <div
+                    class="px-4 py-1.5 rounded-lg bg-purple-950/60 border border-purple-500/20 text-gray-300 text-xs sm:text-sm font-medium mb-6">
                     Which franchise team does this player represent?
                 </div>
 
                 <!-- LIFELINES SHOP / POWER-UPS BUTTONS -->
                 <div class="w-full flex items-center justify-center gap-2 mb-6">
                     <!-- 50:50 Lifeline -->
-                    <button id="btn-life-5050" onclick="app.useLifeline('5050')" class="glass-panel px-3 py-2 rounded-xl border border-purple-500/40 text-xs font-bold text-purple-200 hover:border-amber-400 hover:text-amber-300 transition flex items-center gap-1.5">
+                    <button id="btn-life-5050" onclick="app.useLifeline('5050')"
+                        class="glass-panel px-3 py-2 rounded-xl border border-purple-500/40 text-xs font-bold text-purple-200 hover:border-amber-400 hover:text-amber-300 transition flex items-center gap-1.5">
                         <span>🌓 50:50</span>
-                        <span class="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30">🪙50</span>
+                        <span
+                            class="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30">🪙50</span>
                     </button>
                     <!-- Hint Lifeline -->
-                    <button id="btn-life-hint" onclick="app.useLifeline('hint')" class="glass-panel px-3 py-2 rounded-xl border border-purple-500/40 text-xs font-bold text-purple-200 hover:border-amber-400 hover:text-amber-300 transition flex items-center gap-1.5">
+                    <button id="btn-life-hint" onclick="app.useLifeline('hint')"
+                        class="glass-panel px-3 py-2 rounded-xl border border-purple-500/40 text-xs font-bold text-purple-200 hover:border-amber-400 hover:text-amber-300 transition flex items-center gap-1.5">
                         <span>💡 Hint</span>
-                        <span class="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30">🪙30</span>
+                        <span
+                            class="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30">🪙30</span>
                     </button>
                     <!-- Skip Lifeline -->
-                    <button id="btn-life-skip" onclick="app.useLifeline('skip')" class="glass-panel px-3 py-2 rounded-xl border border-purple-500/40 text-xs font-bold text-purple-200 hover:border-amber-400 hover:text-amber-300 transition flex items-center gap-1.5">
+                    <button id="btn-life-skip" onclick="app.useLifeline('skip')"
+                        class="glass-panel px-3 py-2 rounded-xl border border-purple-500/40 text-xs font-bold text-purple-200 hover:border-amber-400 hover:text-amber-300 transition flex items-center gap-1.5">
                         <span>⏭️ Skip</span>
-                        <span class="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30">🪙100</span>
+                        <span
+                            class="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30">🪙100</span>
                     </button>
                 </div>
 
                 <!-- Hint Text Box (Hidden by default) -->
-                <div id="hint-box" class="w-full p-3 rounded-xl bg-amber-950/40 border border-amber-500/40 text-amber-200 text-xs font-medium mb-4 text-center hidden">
+                <div id="hint-box"
+                    class="w-full p-3 rounded-xl bg-amber-950/40 border border-amber-500/40 text-amber-200 text-xs font-medium mb-4 text-center hidden">
                     <!-- Hint content goes here -->
                 </div>
 
@@ -365,7 +464,8 @@
 
                 <!-- DYNAMIC NEXT LEVEL BUTTON (Appears ONLY upon correct answer) -->
                 <div id="next-level-container" class="w-full hidden">
-                    <button id="btn-next-level" onclick="app.nextLevel()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 via-green-500 to-emerald-600 hover:from-emerald-500 hover:to-green-400 text-white font-extrabold text-lg sm:text-xl shadow-xl border border-green-300/40 btn-pulse-next flex items-center justify-center gap-3 transition">
+                    <button id="btn-next-level" onclick="app.nextLevel()"
+                        class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 via-green-500 to-emerald-600 hover:from-emerald-500 hover:to-green-400 text-white font-extrabold text-lg sm:text-xl shadow-xl border border-green-300/40 btn-pulse-next flex items-center justify-center gap-3 transition">
                         <span id="text-next-btn">NEXT LEVEL 2 👉</span>
                     </button>
                 </div>
@@ -374,19 +474,31 @@
         </main>
 
         <!-- GAME OVER MODAL -->
-        <div id="modal-gameover" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-            <div class="glass-panel rounded-3xl border border-rose-500/50 p-6 sm:p-8 max-w-md w-full text-center relative shadow-2xl animate-shake">
-                <div class="w-20 h-20 rounded-full bg-rose-950/80 border-2 border-rose-500 text-rose-400 text-4xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+        <div id="modal-gameover"
+            class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+            <div
+                class="glass-panel rounded-3xl border border-rose-500/50 p-6 sm:p-8 max-w-md w-full text-center relative shadow-2xl animate-shake">
+                <div
+                    class="w-20 h-20 rounded-full bg-rose-950/80 border-2 border-rose-500 text-rose-400 text-4xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                     💔
                 </div>
                 <h3 class="text-2xl sm:text-3xl font-black text-white mb-2">OUT OF LIVES!</h3>
-                <p class="text-sm text-gray-300 mb-6">You ran out of lifelines on this level. Don't give up—review your team stats and try again!</p>
-                
+
+                <p class="text-sm text-gray-300 mb-3">
+                    You ran out of lives! Spend 30 coins to retry this level with 3 fresh hearts.
+                </p>
+
+                <p id="retry-coins-info" class="text-amber-300 text-xs font-bold mb-6">
+                    Retry cost: 30 coins
+                </p>
+
                 <div class="flex flex-col gap-3">
-                    <button onclick="app.retryLevel()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-rose-700 to-purple-800 hover:from-rose-600 hover:to-purple-700 text-white font-bold text-base shadow-lg transition">
+                    <button onclick="app.retryLevel()"
+                        class="w-full py-3.5 rounded-xl bg-gradient-to-r from-rose-700 to-purple-800 hover:from-rose-600 hover:to-purple-700 text-white font-bold text-base shadow-lg transition">
                         🔄 Retry Level
                     </button>
-                    <button onclick="app.showDashboard()" class="w-full py-3 rounded-xl glass-panel text-gray-300 hover:text-white border border-purple-500/30 text-sm font-semibold transition">
+                    <button onclick="app.showDashboard()"
+                        class="w-full py-3 rounded-xl glass-panel text-gray-300 hover:text-white border border-purple-500/30 text-sm font-semibold transition">
                         🏠 Return to Dashboard
                     </button>
                 </div>
@@ -394,14 +506,19 @@
         </div>
 
         <!-- MODE / LEVEL 100 VICTORY MODAL -->
-        <div id="modal-victory" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-            <div class="glass-panel rounded-3xl border border-amber-400/60 p-6 sm:p-8 max-w-md w-full text-center relative shadow-2xl">
-                <div class="w-24 h-24 rounded-full bg-amber-950/80 border-2 border-amber-400 text-amber-300 text-5xl flex items-center justify-center mx-auto mb-4 shadow-2xl animate-bounce">
+        <div id="modal-victory"
+            class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+            <div
+                class="glass-panel rounded-3xl border border-amber-400/60 p-6 sm:p-8 max-w-md w-full text-center relative shadow-2xl">
+                <div
+                    class="w-24 h-24 rounded-full bg-amber-950/80 border-2 border-amber-400 text-amber-300 text-5xl flex items-center justify-center mx-auto mb-4 shadow-2xl animate-bounce">
                     👑
                 </div>
                 <h3 class="text-3xl font-black text-white mb-1">GRAND VICTORY!</h3>
-                <p id="victory-subtitle" class="text-amber-300 text-sm font-extrabold uppercase tracking-widest mb-4">You Completed All 100 Levels!</p>
-                <p class="text-xs text-gray-300 mb-6">You have proven yourself as an undisputed IPL & PKL Franchise Trivia Legend!</p>
+                <p id="victory-subtitle" class="text-amber-300 text-sm font-extrabold uppercase tracking-widest mb-4">
+                    You Completed All 100 Levels!</p>
+                <p class="text-xs text-gray-300 mb-6">You have proven yourself as an undisputed IPL & PKL Franchise
+                    Trivia Legend!</p>
 
                 <div class="glass-panel p-4 rounded-xl border border-amber-500/30 mb-6 flex justify-around">
                     <div>
@@ -414,20 +531,26 @@
                     </div>
                 </div>
 
-                <button onclick="app.showDashboard()" class="w-full py-4 rounded-xl bg-gradient-to-r from-amber-500 via-purple-600 to-indigo-600 hover:opacity-95 text-white font-black text-base shadow-lg transition">
+                <button onclick="app.showDashboard()"
+                    class="w-full py-4 rounded-xl bg-gradient-to-r from-amber-500 via-purple-600 to-indigo-600 hover:opacity-95 text-white font-black text-base shadow-lg transition">
                     🌟 CLAIM CHAMPION TITLE
                 </button>
             </div>
         </div>
 
         <!-- CONFIRM RESET MODAL -->
-        <div id="modal-reset" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div id="modal-reset"
+            class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
             <div class="glass-panel rounded-3xl border border-purple-500/40 p-6 max-w-sm w-full text-center">
                 <h4 class="text-xl font-black text-white mb-2">Reset All Progress?</h4>
-                <p class="text-xs text-gray-300 mb-6">This will clear your unlocked levels, coin balance, and trophies back to defaults.</p>
+                <p class="text-xs text-gray-300 mb-6">This will clear your unlocked levels, coin balance, and trophies
+                    back to defaults.</p>
                 <div class="flex gap-3">
-                    <button onclick="app.closeResetModal()" class="flex-1 py-2.5 rounded-xl glass-panel text-gray-300 text-xs font-bold hover:bg-gray-800">Cancel</button>
-                    <button onclick="app.executeReset()" class="flex-1 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold">Yes, Reset</button>
+                    <button onclick="app.closeResetModal()"
+                        class="flex-1 py-2.5 rounded-xl glass-panel text-gray-300 text-xs font-bold hover:bg-gray-800">Cancel</button>
+                    <button onclick="app.executeReset()"
+                        class="flex-1 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold">Yes,
+                        Reset</button>
                 </div>
             </div>
         </div>
@@ -444,213 +567,235 @@
 
     <script>
         /* MASTER DATABASES (Exhaustive & Accurate Datasets) */
-        
+
         // 1. IPL PLAYERS DATABASE (100+ UNIQUE PLAYERS)
+
         const IPL_DATABASE = [
-            { id: 'i1', name: 'Virat Kohli', team: 'RCB', role: 'Batsman', hint: 'Highest run scorer in IPL history' },
-            { id: 'i2', name: 'MS Dhoni', team: 'CSK', role: 'Wicketkeeper Batsman', hint: 'Captain Cool led CSK to 5 titles' },
-            { id: 'i3', name: 'Rohit Sharma', team: 'MI', role: 'Batsman', hint: 'Led Mumbai Indians to 5 IPL trophies' },
-            { id: 'i4', name: 'Sunil Narine', team: 'KKR', role: 'All-Rounder', hint: 'Mystery spinner and lethal opener for Kolkata' },
-            { id: 'i5', name: 'Shubman Gill', team: 'GT', role: 'Batsman', hint: 'Captain of Gujarat Giants / Titans' },
-            { id: 'i6', name: 'Heinrich Klaasen', team: 'SRH', role: 'Wicketkeeper Batsman', hint: 'Explosive South African finisher for Hyderabad' },
-            { id: 'i7', name: 'Sanju Samson', team: 'RR', role: 'Wicketkeeper Batsman', hint: 'Long-standing captain of Rajasthan Royals' },
-            { id: 'i8', name: 'Rishabh Pant', team: 'DC', role: 'Wicketkeeper Batsman', hint: 'Dynamic keeper-captain for Delhi Capitals' },
-            { id: 'i9', name: 'Shikhar Dhawan', team: 'PBKS', role: 'Batsman', hint: 'Gabbar led Kings Punjab for several seasons' },
-            { id: 'i10', name: 'KL Rahul', team: 'LSG', role: 'Batsman', hint: 'Prolific opening captain for Lucknow Super Giants' },
-            { id: 'i11', name: 'Jasprit Bumrah', team: 'MI', role: 'Bowler', hint: 'World elite yorker specialist for Mumbai' },
-            { id: 'i12', name: 'Ravindra Jadeja', team: 'CSK', role: 'All-Rounder', hint: 'Sir Jadeja hit winning runs in 2023 IPL final' },
-            { id: 'i13', name: 'Glenn Maxwell', team: 'RCB', role: 'All-Rounder', hint: 'Big Show power hitter for Bengaluru' },
-            { id: 'i14', name: 'Andre Russell', team: 'KKR', role: 'All-Rounder', hint: 'Dre Russ muscle power for Knights' },
-            { id: 'i15', name: 'Rashid Khan', team: 'GT', role: 'Bowler', hint: 'Afghan leg-spin wizard for Gujarat' },
-            { id: 'i16', name: 'Pat Cummins', team: 'SRH', role: 'All-Rounder', hint: 'Aussie World Cup captain leading Sunrisers' },
-            { id: 'i17', name: 'Yuzvendra Chahal', team: 'RR', role: 'Bowler', hint: 'Highest wicket-taker in IPL history' },
-            { id: 'i18', name: 'Axar Patel', team: 'DC', role: 'All-Rounder', hint: 'Key spin all-rounder for Delhi' },
-            { id: 'i19', name: 'Arshdeep Singh', team: 'PBKS', role: 'Bowler', hint: 'Left-arm death overs specialist for Punjab' },
-            { id: 'i20', name: 'Marcus Stoinis', team: 'LSG', role: 'All-Rounder', hint: 'Aussie powerhouse for Lucknow' },
-            { id: 'i21', name: 'Mohammed Siraj', team: 'RCB', role: 'Bowler', hint: 'Miyan Magic pace bowler for Bengaluru' },
-            { id: 'i22', name: 'Ruturaj Gaikwad', team: 'CSK', role: 'Batsman', hint: 'Appointed CSK Captain in 2024' },
-            { id: 'i23', name: 'Suryakumar Yadav', team: 'MI', role: 'Batsman', hint: '360-degree T20 batsman for Mumbai' },
-            { id: 'i24', name: 'Rinku Singh', team: 'KKR', role: 'Batsman', hint: 'Hit 5 consecutive sixes in an iconic chase' },
-            { id: 'i25', name: 'Mohammed Shami', team: 'GT', role: 'Bowler', hint: 'Seam bowling maestro for Gujarat' },
-            { id: 'i26', name: 'Bhuvneshwar Kumar', team: 'SRH', role: 'Bowler', hint: 'Two-time Purple Cap winner for Hyderabad' },
-            { id: 'i27', name: 'Yashasvi Jaiswal', team: 'RR', role: 'Batsman', hint: 'Youngest player to hit fastest IPL 50' },
-            { id: 'i28', name: 'Kuldeep Yadav', team: 'DC', role: 'Bowler', hint: 'Left-arm wrist spinner for Delhi' },
-            { id: 'i29', name: 'Sam Curran', team: 'PBKS', role: 'All-Rounder', hint: 'Record auction buy for Punjab Kings' },
-            { id: 'i30', name: 'Nicholas Pooran', team: 'LSG', role: 'Wicketkeeper Batsman', hint: 'Caribbean power hitter for Lucknow' },
-            { id: 'i31', name: 'Faf du Plessis', team: 'RCB', role: 'Batsman', hint: 'South African leader for Bengaluru' },
-            { id: 'i32', name: 'Shivam Dube', team: 'CSK', role: 'All-Rounder', hint: 'Spin-hitting monster for Super Kings' },
-            { id: 'i33', name: 'Hardik Pandya', team: 'MI', role: 'All-Rounder', hint: 'Returned as Mumbai captain in 2024' },
-            { id: 'i34', name: 'Varun Chakaravarthy', team: 'KKR', role: 'Bowler', hint: 'Mystery leg spinner for Kolkata' },
-            { id: 'i35', name: 'David Miller', team: 'GT', role: 'Batsman', hint: 'Killer Miller finisher for Gujarat' },
-            { id: 'i36', name: 'Travis Head', team: 'SRH', role: 'Batsman', hint: 'Blazing Australian opener for Sunrisers' },
-            { id: 'i37', name: 'Trent Boult', team: 'RR', role: 'Bowler', hint: 'First-over wicket taker for Rajasthan' },
-            { id: 'i38', name: 'Mitchell Marsh', team: 'DC', role: 'All-Rounder', hint: 'Aussie T20 captain representing Delhi' },
-            { id: 'i39', name: 'Jitesh Sharma', team: 'PBKS', role: 'Wicketkeeper Batsman', hint: 'Aggressive finisher for Punjab' },
-            { id: 'i40', name: 'Krunal Pandya', team: 'LSG', role: 'All-Rounder', hint: 'Spin all-rounder for Lucknow' },
-            { id: 'i41', name: 'Ratish Raj', team: 'RCB', role: 'Bowler', hint: 'Emerging pace bowler' },
-            { id: 'i42', name: 'Ajinkya Rahane', team: 'CSK', role: 'Batsman', hint: 'Reinvented T20 striker for Chennai' },
-            { id: 'i43', name: 'Ishan Kishan', team: 'MI', role: 'Wicketkeeper Batsman', hint: 'Left-handed explosive keeper for Mumbai' },
-            { id: 'i44', name: 'Venkatesh Iyer', team: 'KKR', role: 'All-Rounder', hint: 'Versatile left-hand batter for Kolkata' },
-            { id: 'i45', name: 'Sai Sudharsan', team: 'GT', role: 'Batsman', hint: 'Scored 96 in IPL 2023 Final for Gujarat' },
-            { id: 'i46', name: 'Abhishek Sharma', team: 'SRH', role: 'Batsman', hint: 'Fastest 50 scorer for SRH' },
-            { id: 'i47', name: 'Ravichandran Ashwin', team: 'RR', role: 'All-Rounder', hint: 'Veteran off-spin maestro for Rajasthan' },
-            { id: 'i48', name: 'Khaleel Ahmed', team: 'DC', role: 'Bowler', hint: 'Left-arm pacer for Delhi Capitals' },
-            { id: 'i49', name: 'Kagiso Rabada', team: 'PBKS', role: 'Bowler', hint: 'South African speedster for Punjab' },
-            { id: 'i50', name: 'Ravi Bishnoi', team: 'LSG', role: 'Bowler', hint: 'Googly specialist leg spinner for Lucknow' },
-            { id: 'i51', name: 'Dinesh Karthik', team: 'RCB', role: 'Wicketkeeper Batsman', hint: 'Veteran RCB finisher' },
-            { id: 'i52', name: 'Matheesha Pathirana', team: 'CSK', role: 'Bowler', hint: 'Baby Malinga slinger for Chennai' },
-            { id: 'i53', name: 'Tilak Varma', team: 'MI', role: 'Batsman', hint: 'Promising middle order left-hander for Mumbai' },
-            { id: 'i54', name: 'Shreyas Iyer', team: 'KKR', role: 'Batsman', hint: 'Captain who led KKR to 2024 Title' },
-            { id: 'i55', name: 'Rahul Tewatia', team: 'GT', role: 'All-Rounder', hint: 'Famous for pulling off impossible chases for GT' },
-            { id: 'i56', name: 'T Natarajan', team: 'SRH', role: 'Bowler', hint: 'Yorker King for Hyderabad' },
-            { id: 'i57', name: 'Shimron Hetmyer', team: 'RR', role: 'Batsman', hint: 'Guyanese power hitter for Rajasthan' },
-            { id: 'i58', name: 'Anrich Nortje', team: 'DC', role: 'Bowler', hint: '150+ km/h speed demon for Delhi' },
-            { id: 'i59', name: 'Liam Livingstone', team: 'PBKS', role: 'All-Rounder', hint: 'Monster hit specialist for Kings' },
-            { id: 'i60', name: 'Quinton de Kock', team: 'LSG', role: 'Wicketkeeper Batsman', hint: 'South African opener for Super Giants' },
-            { id: 'i61', name: 'Anuj Rawat', team: 'RCB', role: 'Wicketkeeper Batsman', hint: 'Young keeper batter for Bengaluru' },
-            { id: 'i62', name: 'Deepak Chahar', team: 'CSK', role: 'Bowler', hint: 'New ball powerplay swinger for CSK' },
-            { id: 'i63', name: 'Tim David', team: 'MI', role: 'Batsman', hint: 'Australian big hitter for Mumbai' },
-            { id: 'i64', name: 'Nitish Rana', team: 'KKR', role: 'Batsman', hint: 'Middle order left-handed stroke player for KKR' },
-            { id: 'i65', name: 'Vijay Shankar', team: 'GT', role: 'All-Rounder', hint: '3D player for Gujarat' },
-            { id: 'i66', name: 'Aiden Markram', team: 'SRH', role: 'Batsman', hint: 'South African middle order batter for SRH' },
-            { id: 'i67', name: 'Dhruv Jurel', team: 'RR', role: 'Wicketkeeper Batsman', hint: 'Clutch finisher for Rajasthan' },
-            { id: 'i68', name: 'Prithvi Shaw', team: 'DC', role: 'Batsman', hint: 'Aggressive opening batsman for Delhi' },
-            { id: 'i69', name: 'Harshal Patel', team: 'PBKS', role: 'Bowler', hint: 'Purple Patel slow dipping ball specialist' },
-            { id: 'i70', name: 'Amit Mishra', team: 'LSG', role: 'Bowler', hint: 'Veteran leg spinner with 3 IPL hat-tricks' },
-            { id: 'i71', name: 'Rajan Kumar', team: 'RCB', role: 'Bowler', hint: 'Left-arm fast bowler' },
-            { id: 'i72', name: 'Maheesh Theekshana', team: 'CSK', role: 'Bowler', hint: 'Sri Lankan mystery spinner for Chennai' },
-            { id: 'i73', name: 'Piyush Chawla', team: 'MI', role: 'Bowler', hint: 'Experienced leg-spin bowler for Mumbai' },
-            { id: 'i74', name: 'Harshit Rana', team: 'KKR', role: 'Bowler', hint: 'Young fast bowling sensation for KKR' },
-            { id: 'i75', name: 'Mohit Sharma', team: 'GT', role: 'Bowler', hint: 'Back-of-hand slower ball specialist for GT' },
-            { id: 'i76', name: 'Umran Malik', team: 'SRH', role: 'Bowler', hint: 'Fastest Indian bowler clocking 157 km/h' },
-            { id: 'i77', name: 'Riyan Parag', team: 'RR', role: 'All-Rounder', hint: 'Breakout run-scorer for Rajasthan in 2024' },
-            { id: 'i78', name: 'Mukesh Kumar', team: 'DC', role: 'Bowler', hint: 'Death overs specialist for Delhi' },
-            { id: 'i79', name: 'Rahul Chahar', team: 'PBKS', role: 'Bowler', hint: 'Leg-spinner representing Punjab' },
-            { id: 'i80', name: 'Ayush Badoni', team: 'LSG', role: 'Batsman', hint: 'Young clutch finisher for Lucknow' },
-            { id: 'i81', name: 'Will Jacks', team: 'RCB', role: 'All-Rounder', hint: 'Scored 100 off 41 balls for RCB' },
-            { id: 'i82', name: 'Moeen Ali', team: 'CSK', role: 'All-Rounder', hint: 'English off-spin all-rounder for CSK' },
-            { id: 'i83', name: 'Nuwan Thushara', team: 'MI', role: 'Bowler', hint: 'Slingy Sri Lankan bowler for Mumbai' },
-            { id: 'i84', name: 'Angkrish Raghuvanshi', team: 'KKR', role: 'Batsman', hint: 'Young batting talent for Kolkata' },
-            { id: 'i85', name: 'Abhinav Manohar', team: 'GT', role: 'Batsman', hint: 'Power hitter for Gujarat' },
-            { id: 'i86', name: 'Mayank Agarwal', team: 'SRH', role: 'Batsman', hint: 'Top-order batsman for Hyderabad' },
-            { id: 'i87', name: 'Navdeep Saini', team: 'RR', role: 'Bowler', hint: 'Express pacer for Rajasthan' },
-            { id: 'i88', name: 'Tristan Stubbs', team: 'DC', role: 'Batsman', hint: 'South African explosive batter for DC' },
-            { id: 'i89', name: 'Prabhsimran Singh', team: 'PBKS', role: 'Batsman', hint: 'Attacking opener for Punjab' },
-            { id: 'i90', name: 'Yash Thakur', team: 'LSG', role: 'Bowler', hint: 'Took a 5-wicket haul for Lucknow' },
-            { id: 'i91', name: 'Karn Sharma', team: 'RCB', role: 'Bowler', hint: '3-time IPL winner leg-spinner' },
-            { id: 'i92', name: 'Shardul Thakur', team: 'CSK', role: 'All-Rounder', hint: 'Lord Shardul golden arm bowler' },
-            { id: 'i93', name: 'Romario Shepherd', team: 'MI', role: 'All-Rounder', hint: 'West Indian power hitter for Mumbai' },
-            { id: 'i94', name: 'Suyash Sharma', team: 'KKR', role: 'Bowler', hint: 'Young leg spinner for Kolkata' },
-            { id: 'i95', name: 'Wriddhiman Saha', team: 'GT', role: 'Wicketkeeper Batsman', hint: 'Veteran keeper-opener for Gujarat' },
-            { id: 'i96', name: 'Shahbaz Ahmed', team: 'SRH', role: 'All-Rounder', hint: 'Left-arm spinner and batter for SRH' },
-            { id: 'i97', name: 'Kuldeep Sen', team: 'RR', role: 'Bowler', hint: 'High pace bowler for Rajasthan' },
-            { id: 'i98', name: 'Ishant Sharma', team: 'DC', role: 'Bowler', hint: 'Veteran Indian pacer for Delhi' },
-            { id: 'i99', name: 'Vidwath Kaverappa', team: 'PBKS', role: 'Bowler', hint: 'Karnataka pacer in Punjab' },
-            { id: 'i100', name: 'Naveen-ul-Haq', team: 'LSG', role: 'Bowler', hint: 'Afghan fast bowler for Lucknow' }
+            { id: 'i1', name: 'MS Dhoni', team: 'CSK', role: 'Wicketkeeper Batsman', hint: 'Chennai Super Kings star' },
+            { id: 'i2', name: 'Ruturaj Gaikwad', team: 'CSK', role: 'Batsman', hint: 'CSK captain' },
+            { id: 'i3', name: 'Sanju Samson', team: 'CSK', role: 'Wicketkeeper Batsman', hint: 'Indian wicketkeeper batsman' },
+            { id: 'i4', name: 'Shivam Dube', team: 'CSK', role: 'All-Rounder', hint: 'Power-hitting all-rounder' },
+            { id: 'i5', name: 'Khaleel Ahmed', team: 'CSK', role: 'Bowler', hint: 'Left-arm fast bowler' },
+            { id: 'i6', name: 'Rahul Chahar', team: 'CSK', role: 'Bowler', hint: 'Indian leg-spinner' },
+            { id: 'i7', name: 'Shreyas Gopal', team: 'CSK', role: 'All-Rounder', hint: 'Indian spin bowler' },
+            { id: 'i8', name: 'Ayush Mhatre', team: 'CSK', role: 'Batsman', hint: 'Young Indian batter' },
+            { id: 'i9', name: 'Dewald Brevis', team: 'CSK', role: 'Batsman', hint: 'South African power hitter' },
+            { id: 'i10', name: 'Prashant Veer', team: 'CSK', role: 'All-Rounder', hint: 'Young Indian all-rounder' },
+
+            { id: 'i11', name: 'KL Rahul', team: 'DC', role: 'Wicketkeeper Batsman', hint: 'Indian top-order batter' },
+            { id: 'i12', name: 'Axar Patel', team: 'DC', role: 'All-Rounder', hint: 'Left-arm spin all-rounder' },
+            { id: 'i13', name: 'Kuldeep Yadav', team: 'DC', role: 'Bowler', hint: 'Left-arm wrist spinner' },
+            { id: 'i14', name: 'Mukesh Kumar', team: 'DC', role: 'Bowler', hint: 'Indian pace bowler' },
+            { id: 'i15', name: 'Nitish Rana', team: 'DC', role: 'Batsman', hint: 'Left-handed middle-order batter' },
+            { id: 'i16', name: 'Prithvi Shaw', team: 'DC', role: 'Batsman', hint: 'Aggressive opening batter' },
+            { id: 'i17', name: 'Tristan Stubbs', team: 'DC', role: 'Batsman', hint: 'South African power hitter' },
+            { id: 'i18', name: 'T. Natarajan', team: 'DC', role: 'Bowler', hint: 'Yorker specialist' },
+            { id: 'i19', name: 'David Miller', team: 'DC', role: 'Batsman', hint: 'South African finisher' },
+            { id: 'i20', name: 'Pathum Nissanka', team: 'DC', role: 'Batsman', hint: 'Sri Lankan batter' },
+
+            { id: 'i21', name: 'Shubman Gill', team: 'GT', role: 'Batsman', hint: 'Gujarat Titans captain' },
+            { id: 'i22', name: 'Sai Sudharsan', team: 'GT', role: 'Batsman', hint: 'Consistent top-order batter' },
+            { id: 'i23', name: 'Mohammed Siraj', team: 'GT', role: 'Bowler', hint: 'Indian fast bowler' },
+            { id: 'i24', name: 'Rashid Khan', team: 'GT', role: 'Bowler', hint: 'Afghan leg-spin wizard' },
+            { id: 'i25', name: 'Kagiso Rabada', team: 'GT', role: 'Bowler', hint: 'South African fast bowler' },
+            { id: 'i26', name: 'Rahul Tewatia', team: 'GT', role: 'All-Rounder', hint: 'Clutch finishing all-rounder' },
+            { id: 'i27', name: 'Anuj Rawat', team: 'GT', role: 'Wicketkeeper Batsman', hint: 'Indian wicketkeeper batter' },
+            { id: 'i28', name: 'Ishant Sharma', team: 'GT', role: 'Bowler', hint: 'Veteran Indian fast bowler' },
+            { id: 'i29', name: 'Jason Holder', team: 'GT', role: 'All-Rounder', hint: 'West Indies all-rounder' },
+            { id: 'i30', name: 'Washington Sundar', team: 'GT', role: 'All-Rounder', hint: 'Indian spin all-rounder' },
+
+            { id: 'i31', name: 'Rinku Singh', team: 'KKR', role: 'Batsman', hint: 'Famous finisher' },
+            { id: 'i32', name: 'Sunil Narine', team: 'KKR', role: 'All-Rounder', hint: 'Mystery spinner and explosive batter' },
+            { id: 'i33', name: 'Varun Chakaravarthy', team: 'KKR', role: 'Bowler', hint: 'Mystery spinner' },
+            { id: 'i34', name: 'Ajinkya Rahane', team: 'KKR', role: 'Batsman', hint: 'Experienced Indian batter' },
+            { id: 'i35', name: 'Harshit Rana', team: 'KKR', role: 'Bowler', hint: 'Indian fast bowler' },
+            { id: 'i36', name: 'Umran Malik', team: 'KKR', role: 'Bowler', hint: 'Express-pace bowler' },
+            { id: 'i37', name: 'Cameron Green', team: 'KKR', role: 'All-Rounder', hint: 'Australian all-rounder' },
+            { id: 'i38', name: 'Finn Allen', team: 'KKR', role: 'Batsman', hint: 'New Zealand attacking opener' },
+            { id: 'i39', name: 'Matheesha Pathirana', team: 'KKR', role: 'Bowler', hint: 'Sri Lankan sling-action bowler' },
+            { id: 'i40', name: 'Angkrish Raghuvanshi', team: 'KKR', role: 'Batsman', hint: 'Young Indian batter' },
+
+            { id: 'i41', name: 'Rohit Sharma', team: 'MI', role: 'Batsman', hint: 'Indian batting star' },
+            { id: 'i42', name: 'Hardik Pandya', team: 'MI', role: 'All-Rounder', hint: 'Indian pace all-rounder' },
+            { id: 'i43', name: 'Jasprit Bumrah', team: 'MI', role: 'Bowler', hint: 'Yorker specialist' },
+            { id: 'i44', name: 'Suryakumar Yadav', team: 'MI', role: 'Batsman', hint: 'Known for 360-degree shots' },
+            { id: 'i45', name: 'Tilak Varma', team: 'MI', role: 'Batsman', hint: 'Indian middle-order batter' },
+            { id: 'i46', name: 'Trent Boult', team: 'MI', role: 'Bowler', hint: 'New-ball swing specialist' },
+            { id: 'i47', name: 'Deepak Chahar', team: 'MI', role: 'Bowler', hint: 'Powerplay swing bowler' },
+            { id: 'i48', name: 'Shardul Thakur', team: 'MI', role: 'All-Rounder', hint: 'Known as Lord Shardul' },
+            { id: 'i49', name: 'Will Jacks', team: 'MI', role: 'All-Rounder', hint: 'English power hitter' },
+            { id: 'i50', name: 'Sherfane Rutherford', team: 'MI', role: 'Batsman', hint: 'West Indies finisher' },
+
+            { id: 'i51', name: 'Rishabh Pant', team: 'LSG', role: 'Wicketkeeper Batsman', hint: 'Explosive Indian wicketkeeper' },
+            { id: 'i52', name: 'Nicholas Pooran', team: 'LSG', role: 'Wicketkeeper Batsman', hint: 'Caribbean power hitter' },
+            { id: 'i53', name: 'Mitchell Marsh', team: 'LSG', role: 'All-Rounder', hint: 'Australian all-rounder' },
+            { id: 'i54', name: 'Aiden Markram', team: 'LSG', role: 'Batsman', hint: 'South African batter' },
+            { id: 'i55', name: 'Ayush Badoni', team: 'LSG', role: 'Batsman', hint: 'Young Indian batter' },
+            { id: 'i56', name: 'Mohammad Shami', team: 'LSG', role: 'Bowler', hint: 'Indian fast bowler' },
+            { id: 'i57', name: 'Ravi Bishnoi', team: 'LSG', role: 'Bowler', hint: 'Indian leg-spinner' },
+            { id: 'i58', name: 'Anrich Nortje', team: 'LSG', role: 'Bowler', hint: 'South African pace bowler' },
+            { id: 'i59', name: 'Avesh Khan', team: 'LSG', role: 'Bowler', hint: 'Indian fast bowler' },
+            { id: 'i60', name: 'Josh Inglis', team: 'LSG', role: 'Wicketkeeper Batsman', hint: 'Australian wicketkeeper batter' },
+
+            { id: 'i61', name: 'Shreyas Iyer', team: 'PBKS', role: 'Batsman', hint: 'Indian middle-order batter' },
+            { id: 'i62', name: 'Arshdeep Singh', team: 'PBKS', role: 'Bowler', hint: 'Left-arm pace bowler' },
+            { id: 'i63', name: 'Yuzvendra Chahal', team: 'PBKS', role: 'Bowler', hint: 'Indian leg-spin specialist' },
+            { id: 'i64', name: 'Marcus Stoinis', team: 'PBKS', role: 'All-Rounder', hint: 'Australian power all-rounder' },
+            { id: 'i65', name: 'Prabhsimran Singh', team: 'PBKS', role: 'Wicketkeeper Batsman', hint: 'Attacking Indian opener' },
+            { id: 'i66', name: 'Priyansh Arya', team: 'PBKS', role: 'Batsman', hint: 'Young Indian batter' },
+            { id: 'i67', name: 'Yash Thakur', team: 'PBKS', role: 'Bowler', hint: 'Indian pace bowler' },
+            { id: 'i68', name: 'Cooper Connolly', team: 'PBKS', role: 'All-Rounder', hint: 'Australian all-rounder' },
+            { id: 'i69', name: 'Marco Jansen', team: 'PBKS', role: 'All-Rounder', hint: 'Tall South African left-armer' },
+            { id: 'i70', name: 'Harpreet Brar', team: 'PBKS', role: 'All-Rounder', hint: 'Indian left-arm spinner' },
+
+            { id: 'i71', name: 'Yashasvi Jaiswal', team: 'RR', role: 'Batsman', hint: 'Indian opening batter' },
+            { id: 'i72', name: 'Riyan Parag', team: 'RR', role: 'All-Rounder', hint: 'Indian batting all-rounder' },
+            { id: 'i73', name: 'Dhruv Jurel', team: 'RR', role: 'Wicketkeeper Batsman', hint: 'Indian wicketkeeper batter' },
+            { id: 'i74', name: 'Ravindra Jadeja', team: 'RR', role: 'All-Rounder', hint: 'Indian spin all-rounder' },
+            { id: 'i75', name: 'Sam Curran', team: 'RR', role: 'All-Rounder', hint: 'English all-rounder' },
+            { id: 'i76', name: 'Shimron Hetmyer', team: 'RR', role: 'Batsman', hint: 'Caribbean power hitter' },
+            { id: 'i77', name: 'Jofra Archer', team: 'RR', role: 'Bowler', hint: 'Express fast bowler' },
+            { id: 'i78', name: 'Vaibhav Suryavanshi', team: 'RR', role: 'Batsman', hint: 'Young Indian batting talent' },
+            { id: 'i79', name: 'Sandeep Sharma', team: 'RR', role: 'Bowler', hint: 'Indian swing bowler' },
+            { id: 'i80', name: 'Tushar Deshpande', team: 'RR', role: 'Bowler', hint: 'Indian pace bowler' },
+
+            { id: 'i81', name: 'Virat Kohli', team: 'RCB', role: 'Batsman', hint: 'Legendary Indian batter' },
+            { id: 'i82', name: 'Bhuvneshwar Kumar', team: 'RCB', role: 'Bowler', hint: 'Swing bowling specialist' },
+            { id: 'i83', name: 'Krunal Pandya', team: 'RCB', role: 'All-Rounder', hint: 'Indian spin all-rounder' },
+            { id: 'i84', name: 'Jitesh Sharma', team: 'RCB', role: 'Wicketkeeper Batsman', hint: 'Aggressive wicketkeeper batter' },
+            { id: 'i85', name: 'Tim David', team: 'RCB', role: 'Batsman', hint: 'Powerful finisher' },
+            { id: 'i86', name: 'Romario Shepherd', team: 'RCB', role: 'All-Rounder', hint: 'West Indies power hitter' },
+            { id: 'i87', name: 'Suyash Sharma', team: 'RCB', role: 'Bowler', hint: 'Young leg-spinner' },
+            { id: 'i88', name: 'Phil Salt', team: 'RCB', role: 'Wicketkeeper Batsman', hint: 'Explosive English opener' },
+            { id: 'i89', name: 'Venkatesh Iyer', team: 'RCB', role: 'All-Rounder', hint: 'Indian left-handed batter' },
+            { id: 'i90', name: 'Jacob Duffy', team: 'RCB', role: 'Bowler', hint: 'New Zealand fast bowler' },
+
+            { id: 'i91', name: 'Abhishek Sharma', team: 'SRH', role: 'Batsman', hint: 'Explosive Indian opener' },
+            { id: 'i92', name: 'Heinrich Klaasen', team: 'SRH', role: 'Wicketkeeper Batsman', hint: 'South African power hitter' },
+            { id: 'i93', name: 'Pat Cummins', team: 'SRH', role: 'Bowler', hint: 'Australian fast bowler' },
+            { id: 'i94', name: 'Travis Head', team: 'SRH', role: 'Batsman', hint: 'Australian attacking opener' },
+            { id: 'i95', name: 'Ishan Kishan', team: 'SRH', role: 'Wicketkeeper Batsman', hint: 'Indian wicketkeeper batter' },
+            { id: 'i96', name: 'Harshal Patel', team: 'SRH', role: 'Bowler', hint: 'Indian slower-ball specialist' },
+            { id: 'i97', name: 'Liam Livingstone', team: 'SRH', role: 'All-Rounder', hint: 'Power-hitting English all-rounder' },
+            { id: 'i98', name: 'Eshan Malinga', team: 'SRH', role: 'Bowler', hint: 'Sri Lankan fast bowler' },
+            { id: 'i99', name: 'Nitish Kumar Reddy', team: 'SRH', role: 'All-Rounder', hint: 'Indian batting all-rounder' },
+            { id: 'i100', name: 'Praful Hinge', team: 'SRH', role: 'Bowler', hint: 'Indian fast bowler' }
         ];
+
 
         // 2. PKL (PRO KABADDI) PLAYERS DATABASE (100+ UNIQUE PLAYERS)
         const PKL_DATABASE = [
-            { id: 'p1', name: 'Pardeep Narwal', team: 'UP Yoddhas', role: 'Raider', hint: 'Dubki King & all-time leading raid point scorer' },
-            { id: 'p2', name: 'Fazel Atrachali', team: 'Bengal Warriors', role: 'Defender', hint: 'Sultan defender with most tackle points in PKL' },
-            { id: 'p3', name: 'Pawan Sehrawat', team: 'Telugu Titans', role: 'Raider', hint: 'Hi-Flyer holds record for 39 raid points in 1 match' },
-            { id: 'p4', name: 'Naveen Kumar', team: 'Dabang Delhi', role: 'Raider', hint: 'Naveen Express led Delhi to PKL Title' },
-            { id: 'p5', name: 'Aslam Inamdar', team: 'Puneri Paltan', role: 'Raider', hint: 'Title-winning captain for Puneri Paltan' },
-            { id: 'p6', name: 'Sachin Tanwar', team: 'Tamil Thalaivas', role: 'Raider', hint: 'Do-or-Die raid specialist' },
-            { id: 'p7', name: 'Bharat Hooda', team: 'UP Yoddhas', role: 'Raider', hint: 'Towering raider former Bulls star' },
-            { id: 'p8', name: 'Arjun Deshwal', team: 'Jaipur Pink Panthers', role: 'Raider', hint: 'Raid machine and PKL Season 9 MVP' },
-            { id: 'p9', name: 'Vikash Kandola', team: 'Bengaluru Bulls', role: 'Raider', hint: 'Speedy running hand touch specialist' },
-            { id: 'p10', name: 'Mohammadreza Shadloui', team: 'Haryana Steelers', role: 'Defender / All-Rounder', hint: 'Iranians superstar ankle hold wizard' },
-            { id: 'p11', name: 'Maninder Singh', team: 'Bengal Warriors', role: 'Raider', hint: 'Powerhouse raid captain for Bengal' },
-            { id: 'p12', name: 'Siddharth Desai', team: 'Haryana Steelers', role: 'Raider', hint: 'Baahubali raider known for powerful escapes' },
-            { id: 'p13', name: 'Nitesh Kumar', team: 'UP Yoddhas', role: 'Defender', hint: 'First defender to score 100 tackle points in a season' },
-            { id: 'p14', name: 'Surjeet Singh', team: 'Jaipur Pink Panthers', role: 'Defender', hint: 'Cover defender with highest cover tackle points' },
-            { id: 'p15', name: 'Rahul Chaudhari', team: 'Jaipur Pink Panthers', role: 'Raider', hint: 'Original poster boy of Pro Kabaddi' },
-            { id: 'p16', name: 'Mohit Goyat', team: 'Puneri Paltan', role: 'Raider', hint: 'Clutch raid and cover tackle specialist' },
-            { id: 'p17', name: 'Narender Kandola', team: 'Tamil Thalaivas', role: 'Raider', hint: 'Young raiding prodigy for Thalaivas' },
-            { id: 'p18', name: 'Guman Singh', team: 'Gujarat Giants', role: 'Raider', hint: 'Pacey left raider' },
-            { id: 'p19', name: 'Saurabh Nandal', team: 'Bengaluru Bulls', role: 'Defender', hint: 'Right corner master defender for Bulls' },
-            { id: 'p20', name: 'Jaideep Dahiya', team: 'Haryana Steelers', role: 'Defender', hint: 'Left cover captain for Haryana' },
-            { id: 'p21', name: 'Deepak Niwas Hooda', team: 'Bengal Warriors', role: 'All-Rounder', hint: 'Veteran Indian Kabaddi captain' },
-            { id: 'p22', name: 'Anup Kumar', team: 'U Mumba', role: 'Raider / Legend', hint: 'Captain Cool legendary raider' },
-            { id: 'p23', name: 'Monu Goyat', team: 'Patna Pirates', role: 'Raider', hint: 'Key raid partner in Patna 3-peat' },
-            { id: 'p24', name: 'Rinku Sharma', team: 'U Mumba', role: 'Defender', hint: 'Right corner ankle trap master for Mumba' },
-            { id: 'p25', name: 'Ashu Malik', team: 'Dabang Delhi', role: 'Raider', hint: 'Top raid point scorer for Delhi' },
-            { id: 'p26', name: 'Vijay Malik', team: 'Telugu Titans', role: 'All-Rounder', hint: 'All-round Do-or-Die raid expert' },
-            { id: 'p27', name: 'Shrikant Jadhav', team: 'Bengal Warriors', role: 'Raider', hint: 'Escaper and toe touch specialist' },
-            { id: 'p28', name: 'Sanket Sawant', team: 'Puneri Paltan', role: 'Defender', hint: 'Left cover wall for Pune' },
-            { id: 'p29', name: 'Parvesh Bhainswal', team: 'U Mumba', role: 'Defender', hint: 'Famous cover pair with Jaideep' },
-            { id: 'p30', name: 'Manjeet Dahiya', team: 'Patna Pirates', role: 'Raider', hint: 'Tall raider with long reach' },
-            { id: 'p31', name: 'Aman Antil', team: 'Bengaluru Bulls', role: 'Defender', hint: 'Left corner defender for Bulls' },
-            { id: 'p32', name: 'Vishal Bhardwaj', team: 'Dabang Delhi', role: 'Defender', hint: 'Ankle hold specialist left corner' },
-            { id: 'p33', name: 'Sombir Gulia', team: 'Gujarat Giants', role: 'Defender', hint: 'Right corner defender for Gujarat' },
-            { id: 'p34', name: 'Abinesh Nadarajan', team: 'Puneri Paltan', role: 'Defender', hint: 'Right cover dash king for Pune' },
-            { id: 'p35', name: 'Neeraj Kumar', team: 'Patna Pirates', role: 'Defender', hint: 'Cover defender captain for Patna' },
-            { id: 'p36', name: 'Ajinkya Pawar', text: 'Bengaluru Bulls', team: 'Bengaluru Bulls', role: 'Raider', hint: 'Super-sub raid specialist' },
-            { id: 'p37', name: 'Girish Ernak', team: 'U Mumba', role: 'Defender', hint: 'Aggressive left corner defender' },
-            { id: 'p38', name: 'Mahender Singh', team: 'U Mumba', role: 'Defender', hint: 'The Bulldog cover defender' },
-            { id: 'p39', name: 'Chandran Ranjit', team: 'Gujarat Giants', role: 'Raider', hint: 'Speedy running hand touch raider' },
-            { id: 'p40', name: 'K Prapanjan', team: 'Tamil Thalaivas', role: 'Raider', hint: 'Tall Tamil Nadu raider' },
-            { id: 'p41', name: 'Anurag Gaur', team: 'Dabang Delhi', role: 'Raider', hint: 'Young raiding talent' },
-            { id: 'p42', name: 'Gaurav Khatri', team: 'Puneri Paltan', role: 'Defender', hint: 'Right corner defender for Pune' },
-            { id: 'p43', name: 'Sudhakar M', team: 'Patna Pirates', role: 'Raider', hint: 'High-flying youngster for Patna' },
-            { id: 'p44', name: 'Shivam Patare', team: 'Haryana Steelers', role: 'Raider', hint: 'Breakout raider for Haryana' },
-            { id: 'p45', name: 'Sahul Kumar', team: 'Jaipur Pink Panthers', role: 'Defender', hint: 'Right corner for Jaipur' },
-            { id: 'p46', name: 'Reza Mirbagheri', team: 'Jaipur Pink Panthers', role: 'Defender', hint: 'Iranian cover defender for Jaipur' },
-            { id: 'p47', name: 'Mithun Kumar', team: 'Bengal Warriors', role: 'Raider', hint: 'Young raider' },
-            { id: 'p48', name: 'Sumit Sangwan', team: 'UP Yoddhas', role: 'Defender', hint: 'Left corner wall for UP Yoddhas' },
-            { id: 'p49', name: 'Pankaj Mohite', team: 'Puneri Paltan', role: 'Raider', hint: 'Clutch raider for Pune' },
-            { id: 'p50', name: 'Rohit Gulia', team: 'Gujarat Giants', role: 'All-Rounder', hint: 'Left raid and corner defender' },
-            { id: 'p51', name: 'V Ajith Kumar', team: 'Jaipur Pink Panthers', role: 'Raider', hint: 'Fast raider with quick turns' },
-            { id: 'p52', name: 'Parteek Dahiya', team: 'Gujarat Giants', role: 'All-Rounder', hint: 'Young star for Gujarat Giants' },
-            { id: 'p53', name: 'Mohit Nandal', team: 'Haryana Steelers', role: 'Defender', hint: 'Right cover specialist for Haryana' },
-            { id: 'p54', name: 'Sandeep Dhull', team: 'Dabang Delhi', role: 'Defender', hint: 'Divan ankle holder' },
-            { id: 'p55', name: 'Sujan Kandola', team: 'Bengaluru Bulls', role: 'Raider', hint: 'Young Raider' },
-            { id: 'p56', name: 'Krishan Dhull', team: 'Telugu Titans', role: 'Defender', hint: 'Right corner defender' },
-            { id: 'p57', name: 'Rajnish Dalal', team: 'Telugu Titans', role: 'Raider', hint: 'Power raider for Titans' },
-            { id: 'p58', name: 'Anshul', team: 'Tamil Thalaivas', role: 'Raider', hint: 'Promising Tamil raider' },
-            { id: 'p59', name: 'Akshit', team: 'Bengaluru Bulls', role: 'Raider', hint: 'Young raider for Bulls' },
-            { id: 'p60', name: 'Ashish Narwal', team: 'Haryana Steelers', role: 'All-Rounder', hint: 'Support raider and defender' },
-            { id: 'p61', name: 'Aditya Shinde', team: 'Bengal Warriors', role: 'Raider', hint: 'Speedy raider' },
-            { id: 'p62', name: 'Surender Gill', team: 'UP Yoddhas', role: 'Raider', hint: '6ft 3in tall raiding unit' },
-            { id: 'p63', name: 'Nitin Kumar', team: 'Bengal Warriors', role: 'Raider', hint: 'Breakout raider for Bengal' },
-            { id: 'p64', name: 'Amirhossein Bastami', team: 'Tamil Thalaivas', role: 'Defender', hint: 'Iranian right corner tackle' },
-            { id: 'p65', name: 'Visvanath V', team: 'U Mumba', role: 'All-Rounder', hint: 'Young all-rounder for Mumba' },
-            { id: 'p66', name: 'Hadi Oshtorak', team: 'Gujarat Giants', role: 'Defender', hint: 'Iranian veteran defender' },
-            { id: 'p67', name: 'Ankush Rathee', team: 'Jaipur Pink Panthers', role: 'Defender', hint: 'Top tackle points scorer in debut season' },
-            { id: 'p68', name: 'Rahul Sethpal', team: 'Haryana Steelers', role: 'Defender', hint: 'Right corner dash specialist' },
-            { id: 'p69', name: 'Himanshu Singh', team: 'Tamil Thalaivas', role: 'Raider', hint: 'Tall raider for Thalaivas' },
-            { id: 'p70', name: 'Shivam Chaudhary', team: 'UP Yoddhas', role: 'Raider', hint: 'Do-or-die raider' },
-            { id: 'p71', name: 'Sandeep Narwal', team: 'UP Yoddhas', role: 'All-Rounder', hint: 'Beast mode all-rounder' },
-            { id: 'p72', name: 'Dharmaraj Cheralathan', team: 'Patna Pirates', role: 'Defender / Legend', hint: 'Anna veteran corner defender' },
-            { id: 'p73', name: 'Jang Kun Lee', team: 'Bengal Warriors', role: 'Raider', hint: 'Korean legendary raider' },
-            { id: 'p74', name: 'Abozar Moghani', team: 'Telugu Titans', role: 'Defender', hint: 'Iranian right corner defender' },
-            { id: 'p75', name: 'Shabeer Bappu', team: 'U Mumba', role: 'Raider', hint: 'Clutch raid specialist in early PKL' },
-            { id: 'p76', name: 'Kashiling Adake', team: 'Dabang Delhi', role: 'Raider', hint: 'Frog jump raiding icon' },
-            { id: 'p77', name: 'Rishank Devadiga', team: 'UP Yoddhas', role: 'Raider', hint: 'Running hand touch expert' },
-            { id: 'p78', name: 'Sukesh Hegde', team: 'Bengal Warriors', role: 'Raider', hint: 'Reliable left raider' },
-            { id: 'p79', name: 'Nilesh Salunke', team: 'Telugu Titans', role: 'Raider', hint: 'Technical raider' },
-            { id: 'p80', name: 'Jasvir Singh', team: 'Jaipur Pink Panthers', role: 'Raider', hint: 'Scorpion kick master' },
-            { id: 'p81', name: 'Deepak Kumar Rathee', team: 'Gujarat Giants', role: 'Defender', hint: 'Young defender' },
-            { id: 'p82', name: 'Mahesh Maruti', team: 'Bengal Warriors', role: 'Raider', hint: 'Sub raider' },
-            { id: 'p83', name: 'Saurabh Bhagat', team: 'Dabang Delhi', role: 'Raider', hint: 'Emerging raid talent' },
-            { id: 'p84', name: 'Rohit Kumar', team: 'Bengaluru Bulls', role: 'Raider', hint: 'Captain who led Bulls to Season 6 Title' },
-            { id: 'p85', name: 'Ravinder Pahal', team: 'Dabang Delhi', role: 'Defender', hint: 'The Hawk corner defender' },
-            { id: 'p86', name: 'Mohsen Maghsoudlou', team: 'Telugu Titans', role: 'All-Rounder', hint: 'Iranian all-rounder' },
-            { id: 'p87', name: 'Dong Geon Lee', team: 'Gujarat Giants', role: 'Raider', hint: 'Korean speed raider' },
-            { id: 'p88', name: 'Meraj Sheykh', team: 'Dabang Delhi', role: 'All-Rounder', hint: 'Iranian back-kick master' },
-            { id: 'p89', name: 'Surender Nada', team: 'Haryana Steelers', role: 'Defender', hint: 'Ankle hold specialist left corner' },
-            { id: 'p90', name: 'Manjeet Chhillar', team: 'Bengaluru Bulls', role: 'All-Rounder', hint: 'One of PKL most aggressive legendary all-rounders' },
-            { id: 'p91', name: 'Praveen Birwal', team: 'Dabang Delhi', role: 'Defender', hint: 'Young defender' },
-            { id: 'p92', name: 'Rohit Raghav', team: 'Puneri Paltan', role: 'Raider', hint: 'Promising raid talent' },
-            { id: 'p93', name: 'Yogesh Dahiya', team: 'Dabang Delhi', role: 'Defender', hint: 'Top tackle defender in 2024' },
-            { id: 'p94', name: 'Aashish Sethpal', team: 'U Mumba', role: 'Defender', hint: 'Cover defender' },
-            { id: 'p95', name: 'Milad Jabbari', team: 'Telugu Titans', role: 'Defender', hint: 'Iranian defender' },
-            { id: 'p96', name: 'Gokulakannan S', team: 'Tamil Thalaivas', role: 'Defender', hint: 'Right cover' },
-            { id: 'p97', name: 'Sandeep Kumar', team: 'Patna Pirates', role: 'Raider', hint: 'Patna raider' },
-            { id: 'p98', name: 'Babu M', team: 'Patna Pirates', role: 'Defender', hint: 'Left corner' },
-            { id: 'p99', name: 'Pranay Rane', team: 'U Mumba', role: 'Raider', hint: 'Raiding option' },
-            { id: 'p100', name: 'Heidarali Ekrami', team: 'U Mumba', role: 'Raider', hint: 'Iranian raider for Mumba' }
+            { id: 'p1', name: 'Nitesh Kumar', team: 'Bengal Warriorz', role: 'Defender', hint: 'Bengal Warriorz player' },
+            { id: 'p2', name: 'Jang Kun Lee', team: 'Bengal Warriorz', role: 'Raider', hint: 'Korean raider' },
+            { id: 'p3', name: 'Devank Dalal', team: 'Bengal Warriorz', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p4', name: 'Sushil Kambrekar', team: 'Bengal Warriorz', role: 'Raider', hint: 'Bengal Warriorz player' },
+            { id: 'p5', name: 'Vishwas S', team: 'Bengal Warriorz', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p6', name: 'Mayur Jagannath Kadam', team: 'Bengal Warriorz', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p7', name: 'Punit Kumar', team: 'Bengal Warriorz', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p8', name: 'Manprit', team: 'Bengal Warriorz', role: 'All-Rounder', hint: 'Bengal Warriorz player' },
+            { id: 'p9', name: 'Shivansh Thakur', team: 'Bengal Warriorz', role: 'Raider', hint: 'Indian player' },
+
+            { id: 'p10', name: 'Manjeet', team: 'Bengaluru Bulls', role: 'Raider', hint: 'Bengaluru Bulls player' },
+            { id: 'p11', name: 'Pankaj', team: 'Bengaluru Bulls', role: 'Raider', hint: 'Bengaluru Bulls player' },
+            { id: 'p12', name: 'Akash Shinde', team: 'Bengaluru Bulls', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p13', name: 'Alireza Mirzaeian', team: 'Bengaluru Bulls', role: 'Raider', hint: 'Iranian player' },
+            { id: 'p14', name: 'Lucky Kumar', team: 'Bengaluru Bulls', role: 'Defender', hint: 'Bengaluru Bulls player' },
+            { id: 'p15', name: 'Yogesh', team: 'Bengaluru Bulls', role: 'Defender', hint: 'Bengaluru Bulls player' },
+            { id: 'p16', name: 'Ahmadreza Asgari', team: 'Bengaluru Bulls', role: 'All-Rounder', hint: 'Iranian player' },
+            { id: 'p17', name: 'Deepak', team: 'Bengaluru Bulls', role: 'Defender', hint: 'Bengaluru Bulls player' },
+
+            { id: 'p18', name: 'Fazel Atrachali', team: 'Dabang Delhi KC', role: 'Defender', hint: 'Iranian defensive star' },
+            { id: 'p19', name: 'Ashu Malik', team: 'Dabang Delhi KC', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p20', name: 'Surjeet Singh', team: 'Dabang Delhi KC', role: 'Defender', hint: 'Experienced Indian defender' },
+            { id: 'p21', name: 'Saurabh Nandal', team: 'Dabang Delhi KC', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p22', name: 'Ajinkya Pawar', team: 'Dabang Delhi KC', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p23', name: 'Neeraj Narwal', team: 'Dabang Delhi KC', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p24', name: 'Akshit', team: 'Dabang Delhi KC', role: 'Raider', hint: 'Young Indian raider' },
+            { id: 'p25', name: 'Amirhossein Bastami', team: 'Dabang Delhi KC', role: 'Defender', hint: 'Iranian defender' },
+
+            { id: 'p26', name: 'Mohammadreza Shadloui', team: 'Gujarat Giants', role: 'All-Rounder', hint: 'Iranian kabaddi star' },
+            { id: 'p27', name: 'V. Ajith Kumar', team: 'Gujarat Giants', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p28', name: 'Parteek Dahiya', team: 'Gujarat Giants', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p29', name: 'Rohit Kumar', team: 'Gujarat Giants', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p30', name: 'Milad Jabbari', team: 'Gujarat Giants', role: 'Defender', hint: 'Iranian defender' },
+            { id: 'p31', name: 'Lucky Sharma', team: 'Gujarat Giants', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p32', name: 'Shubham Kumar', team: 'Gujarat Giants', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p33', name: 'Nitin Panwar', team: 'Gujarat Giants', role: 'Raider', hint: 'Indian player' },
+            { id: 'p34', name: 'Visvanth V', team: 'Gujarat Giants', role: 'All-Rounder', hint: 'Indian all-rounder' },
+
+            { id: 'p35', name: 'Naveen Kumar', team: 'Haryana Steelers', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p36', name: 'Jaideep Dahiya', team: 'Haryana Steelers', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p37', name: 'Shivam Patare', team: 'Haryana Steelers', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p38', name: 'Rahul Sethpal', team: 'Haryana Steelers', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p39', name: 'Vinay', team: 'Haryana Steelers', role: 'Raider', hint: 'Haryana Steelers player' },
+            { id: 'p40', name: 'Sahil', team: 'Haryana Steelers', role: 'Defender', hint: 'Haryana Steelers player' },
+            { id: 'p41', name: 'Shahan Sha Mohammed', team: 'Haryana Steelers', role: 'Raider', hint: 'Indian player' },
+            { id: 'p42', name: 'Ghanshyam Roka Magar', team: 'Haryana Steelers', role: 'Raider', hint: 'Indian player' },
+            { id: 'p43', name: 'Manikandan N.', team: 'Haryana Steelers', role: 'Raider', hint: 'Indian player' },
+
+            { id: 'p44', name: 'Reza Mirbagheri', team: 'Jaipur Pink Panthers', role: 'Defender', hint: 'Iranian defender' },
+            { id: 'p45', name: 'Nitin Kumar', team: 'Jaipur Pink Panthers', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p46', name: 'Sombir', team: 'Jaipur Pink Panthers', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p47', name: 'Uday Parte', team: 'Jaipur Pink Panthers', role: 'Raider', hint: 'Indian player' },
+            { id: 'p48', name: 'Nitin Rawal', team: 'Jaipur Pink Panthers', role: 'All-Rounder', hint: 'Indian all-rounder' },
+            { id: 'p49', name: 'Ali Samadi Choubtarash', team: 'Jaipur Pink Panthers', role: 'Defender', hint: 'Iranian player' },
+            { id: 'p50', name: 'Ronak Singh', team: 'Jaipur Pink Panthers', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p51', name: 'Nitin Kumar Dhankhar', team: 'Jaipur Pink Panthers', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p52', name: 'Aashish Kumar', team: 'Jaipur Pink Panthers', role: 'Defender', hint: 'Indian player' },
+
+            { id: 'p53', name: 'Maninder Singh', team: 'Patna Pirates', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p54', name: 'Sudhakar M', team: 'Patna Pirates', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p55', name: 'Sanket Sawant', team: 'Patna Pirates', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p56', name: 'Deepak Singh', team: 'Patna Pirates', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p57', name: 'Ayan', team: 'Patna Pirates', role: 'Raider', hint: 'Patna Pirates player' },
+            { id: 'p58', name: 'Ankit Jaglan', team: 'Patna Pirates', role: 'Defender', hint: 'Indian player' },
+            { id: 'p59', name: 'Navdeep', team: 'Patna Pirates', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p60', name: 'Amin Ghorbani', team: 'Patna Pirates', role: 'Defender', hint: 'Iranian player' },
+
+            { id: 'p61', name: 'Aslam Inamdar', team: 'Puneri Paltan', role: 'All-Rounder', hint: 'Indian all-rounder' },
+            { id: 'p62', name: 'Mohit Goyat', team: 'Puneri Paltan', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p63', name: 'Gaurav Khatri', team: 'Puneri Paltan', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p64', name: 'Abinesh Nadarajan', team: 'Puneri Paltan', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p65', name: 'Pankaj Mohite', team: 'Puneri Paltan', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p66', name: 'Vishal Bhardwaj', team: 'Puneri Paltan', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p67', name: 'Gurdeep', team: 'Puneri Paltan', role: 'All-Rounder', hint: 'Puneri Paltan player' },
+            { id: 'p68', name: 'Sachin Tanwar', team: 'Puneri Paltan', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p69', name: 'Mohammad Esmaeil Nabibakhsh', team: 'Puneri Paltan', role: 'All-Rounder', hint: 'Iranian all-rounder' },
+
+            { id: 'p70', name: 'Pawan Sehrawat', team: 'Tamil Thalaivas', role: 'Raider', hint: 'Indian raider known as Hi-Flyer' },
+            { id: 'p71', name: 'Arjun Deshwal', team: 'Tamil Thalaivas', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p72', name: 'Narender', team: 'Tamil Thalaivas', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p73', name: 'Nitesh Kumar', team: 'Tamil Thalaivas', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p74', name: 'Sagar', team: 'Tamil Thalaivas', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p75', name: 'Vishal Chahal', team: 'Tamil Thalaivas', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p76', name: 'Ashish Narwal', team: 'Tamil Thalaivas', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p77', name: 'Alireza Khalili', team: 'Tamil Thalaivas', role: 'Defender', hint: 'Iranian player' },
+
+            { id: 'p78', name: 'Bharat Hooda', team: 'Telugu Titans', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p79', name: 'Vijay Malik', team: 'Telugu Titans', role: 'All-Rounder', hint: 'Indian all-rounder' },
+            { id: 'p80', name: 'Shubham Shinde', team: 'Telugu Titans', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p81', name: 'Chetan Sahu', team: 'Telugu Titans', role: 'Raider', hint: 'Indian player' },
+            { id: 'p82', name: 'Nitin', team: 'Telugu Titans', role: 'Raider', hint: 'Telugu Titans player' },
+            { id: 'p83', name: 'Rohit', team: 'Telugu Titans', role: 'Raider', hint: 'Telugu Titans player' },
+            { id: 'p84', name: 'Amirhossein Ejlali', team: 'Telugu Titans', role: 'Defender', hint: 'Iranian player' },
+
+            { id: 'p85', name: 'Parvesh Bhainswal', team: 'U Mumba', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p86', name: 'Sandeep Kumar', team: 'U Mumba', role: 'Raider', hint: 'Indian player' },
+            { id: 'p87', name: 'Sunil Kumar', team: 'U Mumba', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p88', name: 'Ajit Chouhan', team: 'U Mumba', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p89', name: 'Satish Kannan', team: 'U Mumba', role: 'Raider', hint: 'Indian player' },
+            { id: 'p90', name: 'Rinku', team: 'U Mumba', role: 'Defender', hint: 'U Mumba player' },
+            { id: 'p91', name: 'Aanil Mohan', team: 'U Mumba', role: 'Defender', hint: 'Indian player' },
+            { id: 'p92', name: 'Mohammad Ghorbani', team: 'U Mumba', role: 'All-Rounder', hint: 'Iranian player' },
+
+            { id: 'p93', name: 'Guman Singh', team: 'UP Yoddhas', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p94', name: 'Surender Gill', team: 'UP Yoddhas', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p95', name: 'Dong Geon Lee', team: 'UP Yoddhas', role: 'Raider', hint: 'Korean raider' },
+            { id: 'p96', name: 'Sahul Kumar', team: 'UP Yoddhas', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p97', name: 'Shivam Chaudhary', team: 'UP Yoddhas', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p98', name: 'Gagana Gowda HR', team: 'UP Yoddhas', role: 'Raider', hint: 'Indian raider' },
+            { id: 'p99', name: 'Sumit Sangwan', team: 'UP Yoddhas', role: 'Defender', hint: 'Indian defender' },
+            { id: 'p100', name: 'Pranay Vinay Rane', team: 'UP Yoddhas', role: 'Raider', hint: 'Indian raider' }
         ];
 
         // IPL Teams List
@@ -658,9 +803,18 @@
 
         // PKL Teams List
         const PKL_TEAMS = [
-            'Patna Pirates', 'U Mumba', 'Jaipur Pink Panthers', 'Puneri Paltan', 
-            'Bengaluru Bulls', 'Tamil Thalaivas', 'Dabang Delhi', 'Bengal Warriors', 
-            'Telugu Titans', 'Haryana Steelers', 'UP Yoddhas', 'Gujarat Giants'
+            'Patna Pirates',
+            'U Mumba',
+            'Jaipur Pink Panthers',
+            'Puneri Paltan',
+            'Bengaluru Bulls',
+            'Tamil Thalaivas',
+            'Dabang Delhi KC',
+            'Bengal Warriorz',
+            'Telugu Titans',
+            'Haryana Steelers',
+            'UP Yoddhas',
+            'Gujarat Giants'
         ];
 
         /* AUDIO SYNTHESIZER (No external audio assets needed) */
@@ -813,7 +967,7 @@
                     const savedSound = localStorage.getItem('pkl_ipl_sound');
                     if (savedSound !== null) this.soundOn = JSON.parse(savedSound);
                     audio.enabled = this.soundOn;
-                } catch(e) {
+                } catch (e) {
                     console.warn('LocalStorage error:', e);
                 }
             }
@@ -824,7 +978,7 @@
                     localStorage.setItem('pkl_ipl_coins', this.coins.toString());
                     localStorage.setItem('pkl_ipl_levels', JSON.stringify(this.levels));
                     localStorage.setItem('pkl_ipl_sound', JSON.stringify(this.soundOn));
-                } catch(e) {
+                } catch (e) {
                     console.warn('LocalStorage save error:', e);
                 }
             }
@@ -841,7 +995,7 @@
 
             updateDashboardStats() {
                 document.getElementById('dash-total-coins').innerText = this.coins.toLocaleString();
-                
+
                 const totalLevelsBeat = (this.levels.ipl - 1) + (this.levels.pkl - 1) + (this.levels.mixed - 1);
                 document.getElementById('dash-total-levels').innerText = `${totalLevelsBeat} / 300`;
 
@@ -940,7 +1094,7 @@
             showGameView() {
                 document.getElementById('view-dashboard').classList.add('view-hidden');
                 document.getElementById('view-game').classList.remove('view-hidden');
-                
+
                 // Mode Tag Label
                 const modeLabels = { ipl: '🏏 IPL TRIVIA', pkl: '🤼 PKL TRIVIA', mixed: '🔥 ULTIMATE MIXED' };
                 document.getElementById('game-mode-tag').innerText = modeLabels[this.currentMode];
@@ -959,7 +1113,7 @@
                 // Reset Cards and Buttons state
                 document.getElementById('hint-box').classList.add('hidden');
                 document.getElementById('next-level-container').classList.add('hidden');
-                
+
                 const avatarFrame = document.getElementById('avatar-frame');
                 avatarFrame.className = 'w-32 h-32 sm:w-40 sm:h-40 rounded-full player-avatar-glow overflow-hidden bg-gray-900 relative flex items-center justify-center transition-all duration-300';
 
@@ -1061,9 +1215,11 @@
                         }
                     });
 
-                    // Award Coins
+                    // Award Coins and save immediately
                     this.coins += 100;
                     this.updateHeaderStats();
+                    this.saveProgress();
+                    this.updateDashboardStats();
 
                     // Unlock next level in progress state if higher
                     if (this.currentLevelNum >= this.levels[this.currentMode]) {
@@ -1113,8 +1269,11 @@
                     // Check Game Over
                     if (this.lives <= 0) {
                         this.levelAnswered = true;
+
                         setTimeout(() => {
-                            document.getElementById('modal-gameover').classList.remove('hidden');
+                            this.updateRetryButton();
+                            document.getElementById('modal-gameover')
+                                .classList.remove('hidden');
                         }, 500);
                     }
                 }
@@ -1133,12 +1292,53 @@
                 }
             }
 
+            updateRetryButton() {
+                const btn = document.querySelector(
+                    '#modal-gameover button[onclick="app.retryLevel()"]'
+                );
+
+                const info = document.getElementById('retry-coins-info');
+
+                if (!btn) return;
+
+                const canRetry = this.coins >= 30;
+
+                btn.disabled = !canRetry;
+                btn.classList.toggle('opacity-40', !canRetry);
+                btn.classList.toggle('cursor-not-allowed', !canRetry);
+
+                btn.innerText = canRetry
+                    ? '🔄 Retry Level — 30 Coins'
+                    : '🪙 Need 30 Coins to Retry';
+
+                if (info) {
+                    info.innerText = canRetry
+                        ? `Your balance: ${this.coins} coins`
+                        : `Your balance: ${this.coins} coins — not enough to retry`;
+                }
+            }
+
+
             retryLevel() {
-                audio.playClick();
+                if (this.coins < 30) {
+                    document.getElementById('modal-gameover').classList.add('hidden');
+                    this.showToast("Not enough coins! Need 30 coins to retry.");
+                    this.showDashboard();
+                    return;
+                }
+
+                this.coins -= 30;
+                this.saveProgress();
+                this.updateHeaderStats();
+                this.updateDashboardStats();
+
                 document.getElementById('modal-gameover').classList.add('hidden');
+
                 this.lives = 3;
+                this.levelAnswered = false;
                 this.loadLevel(this.currentLevelNum);
             }
+
 
             useLifeline(type) {
                 if (this.levelAnswered) return;
@@ -1294,4 +1494,5 @@
         });
     </script>
 </body>
+
 </html>
